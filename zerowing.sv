@@ -1226,7 +1226,7 @@ always @ (posedge clk_sys) begin
                     // if tile hidden then make the pallette index 0. ie transparent
                     fb_din <= { layer, (tile_hidden == 1 || tile_pix == 0 ) ? 4'b0 : tile_priority, tile_palette_idx,  tile_pix };
                     tile_fb_w <= 1;
-                end else if (tile_hidden == 0 && tile_pix > 0 && tile_priority >= tile_priority_buf[x]) begin
+                end else if (tile_hidden == 0 && tile_pix > 0 && tile_priority > tile_priority_buf[x]) begin
                     tile_priority_buf[x] <= tile_priority;
                     
                     // if tile hidden then make the pallette index 0. ie transparent
